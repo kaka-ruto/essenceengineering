@@ -10,64 +10,210 @@ const navLinks = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-darker)]/80 backdrop-blur-xl border-b border-[var(--color-border)]/50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="/" class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] flex items-center justify-center">
-        <span class="text-white font-bold text-lg">E</span>
-      </div>
-      <div>
-        <div class="font-bold text-lg leading-tight">ESSENCE</div>
-        <div class="text-[10px] tracking-[0.2em] text-[var(--color-secondary)] leading-tight">ENGINEERING</div>
-      </div>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <!-- Brand -->
+    <a href="/" class="brand" aria-label="Essence Engineering — home">
+      <span class="brand__mark" aria-hidden="true">E</span>
+      <span class="brand__text">
+        <span class="brand__name">Essence Engineering</span>
+        <span class="brand__sub">Kericho · Kenya</span>
+      </span>
     </a>
 
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex items-center gap-8">
+    <!-- Desktop nav -->
+    <nav class="nav-desktop" aria-label="Main">
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class={`text-sm font-medium transition-colors ${currentPath === link.href ? 'text-[var(--color-secondary)]' : 'text-[var(--color-text-muted)] hover:text-white'}`}
+          class="nav-link"
+          aria-current={currentPath === link.href ? 'page' : undefined}
         >
           {link.label}
         </a>
       ))}
     </nav>
 
-    <!-- CTA + Mobile Toggle -->
-    <div class="flex items-center gap-4">
-      <a href="/contact" class="btn-primary text-sm py-2 px-4 hidden md:inline-flex">
-        Get a Quote
-      </a>
-      <button id="mobile-toggle" class="md:hidden text-white p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-        </svg>
+    <div class="header-actions">
+      <a href="/contact" class="btn btn-blue nav-cta">Request a quote</a>
+      <button id="nav-toggle" class="nav-toggle press" aria-expanded="false" aria-controls="nav-mobile" aria-label="Menu">
+        <span></span><span></span>
       </button>
     </div>
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-dark)] border-t border-[var(--color-border)]">
-    <nav class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
-      {navLinks.map((link) => (
+  <!-- Mobile nav -->
+  <div id="nav-mobile" class="nav-mobile" hidden>
+    <nav class="wrap" aria-label="Mobile">
+      {navLinks.map((link, i) => (
         <a
           href={link.href}
-          class={`text-sm font-medium transition-colors ${currentPath === link.href ? 'text-[var(--color-secondary)]' : 'text-[var(--color-text-muted)]'}`}
+          class="nav-mobile__link"
+          style={`--d:${i * 40}ms`}
+          aria-current={currentPath === link.href ? 'page' : undefined}
         >
+          <span class="mono-label" style="margin:0">0{i + 1}</span>
           {link.label}
         </a>
       ))}
-      <a href="/contact" class="btn-primary text-sm py-2 px-4 text-center mt-2">Get a Quote</a>
+      <a href="/contact" class="btn btn-blue" style="margin-top:1.5rem">Request a quote</a>
     </nav>
   </div>
 </header>
 
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(244, 246, 249, 0.92);
+    backdrop-filter: blur(14px) saturate(160%);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 72px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .brand__mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 3px;
+    background: var(--blue);
+    color: var(--on-blue);
+    font-weight: 800;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .brand__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .brand__name {
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .brand__sub {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+
+  .nav-desktop {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .nav-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: 1px solid var(--line-2);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--ink);
+    margin: 2px 0;
+    transition: transform var(--t-med) var(--ease-out);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(3px) rotate(45deg);
+  }
+
+  .nav-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+
+  .nav-mobile {
+    border-top: 1px solid var(--line);
+    background: var(--surface);
+    padding-block: 0.75rem 2rem;
+  }
+
+  .nav-mobile__link {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding-block: 1rem;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.125rem;
+    border-bottom: 1px solid var(--line);
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  .nav-mobile[data-open="true"] .nav-mobile__link {
+    animation: navIn 0.4s var(--ease-out) forwards;
+    animation-delay: var(--d, 0ms);
+  }
+
+  @keyframes navIn {
+    to { opacity: 1; transform: none; }
+  }
+
+  .nav-mobile a[aria-current="page"] {
+    color: var(--blue);
+  }
+
+  @media (max-width: 639px) {
+    .nav-cta { display: none; }
+  }
+
+  @media (min-width: 900px) {
+    .nav-desktop { display: flex; }
+    .nav-toggle { display: none; }
+    .nav-mobile { display: none !important; }
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const toggle = document.getElementById('mobile-toggle');
-    const menu = document.getElementById('mobile-menu');
-    toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+    const toggle = document.getElementById('nav-toggle');
+    const menu = document.getElementById('nav-mobile');
+    if (!toggle || !menu) return;
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      menu.hidden = open;
+      if (!open) requestAnimationFrame(() => menu.setAttribute('data-open', 'true'));
+      else menu.removeAttribute('data-open');
+    });
   });
 </script>

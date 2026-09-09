@@ -4,149 +4,152 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const projects = [
-  {
-    title: 'Kericho Water Supply Project',
-    category: 'Borehole Services',
-    location: 'Kericho',
-    description: 'Complete borehole drilling and equipping for a residential estate serving 200+ households. Included pump installation, water treatment, and distribution system.',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop',
-    year: '2024',
-  },
-  {
-    title: 'Nakuru Solar Installation',
-    category: 'Solar Installations',
-    location: 'Nakuru',
-    description: '50kW solar system installation for a commercial complex, reducing energy costs by 60%. Includes battery backup for critical operations.',
-    image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop',
-    year: '2024',
-  },
-  {
-    title: 'Eldoret Electrical Works',
-    category: 'Electrical Works',
-    location: 'Eldoret',
-    description: 'Full electrical installation for a 5-story commercial building including backup generators, lighting design, and smart controls.',
-    image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&h=400&fit=crop',
-    year: '2023',
-  },
-  {
-    title: 'Kericho Heights Tank Structure',
-    category: 'Tank Structures',
-    location: 'Kericho',
-    description: 'Construction of elevated water tank structure for a residential development. 50,000-liter capacity steel tank on reinforced concrete tower.',
-    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=400&fit=crop',
-    year: '2023',
-  },
-  {
-    title: 'Bomet Farm Plumbing',
-    category: 'Plumbing Works',
-    location: 'Bomet',
-    description: 'Complete plumbing system for a 200-acre agricultural farm including irrigation, water supply, and drainage systems.',
-    image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=600&h=400&fit=crop',
-    year: '2023',
-  },
-  {
-    title: 'Nairobi Office Complex',
-    category: 'General Consultancy',
-    location: 'Nairobi',
-    description: 'Engineering consultancy for a 10-story office complex. Included structural assessment, MEP design, and project management.',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop',
-    year: '2024',
-  },
+  { no: 'P.01', cat: 'Water works', title: 'Borehole supply for a residential estate', loc: 'Kericho', desc: 'Site survey, drilling to 140 m, pump installation and water quality testing — 200+ households supplied.', img: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1000&q=70&auto=format&fit=crop', year: '2025' },
+  { no: 'P.02', cat: 'Solar', title: '50 kW commercial solar system', loc: 'Nakuru', desc: 'Roof-mounted array, inverter room and battery backup sized to cut grid dependence for a trading complex.', img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1000&q=70&auto=format&fit=crop', year: '2025' },
+  { no: 'P.03', cat: 'Electrical', title: 'Full electrical fit-out, commercial building', loc: 'Eldoret', desc: 'Wiring, distribution, earthing and generator changeover for a five-storey building.', img: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1000&q=70&auto=format&fit=crop', year: '2024' },
+  { no: 'P.04', cat: 'Tanks & plumbing', title: 'Elevated tank & supply upgrade', loc: 'Kericho', desc: 'Steel tank on a reinforced stand, booster set and full distribution rework for an institution.', img: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1000&q=70&auto=format&fit=crop', year: '2024' },
+  { no: 'P.05', cat: 'Solar pumping', title: 'Solar water pump for a tea farm', loc: 'Bomet', desc: 'Submersible pump running off solar alone — no grid, no diesel, year-round water for the nursery.', img: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1000&q=70&auto=format&fit=crop', year: '2024' },
+  { no: 'P.06', cat: 'Consultancy', title: 'Water master-plan for a school', loc: 'Kericho County', desc: 'Feasibility, borehole siting, storage sizing and phased budget for a boarding school.', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000&q=70&auto=format&fit=crop', year: '2023' },
 ];
 
-const categories = ['All', 'Borehole Services', 'Electrical Works', 'Plumbing Works', 'Tank Structures', 'Solar Installations', 'General Consultancy'];
+const cats = ['All', 'Water works', 'Solar', 'Electrical', 'Tanks & plumbing', 'Consultancy'];
 ---
 
-<Layout title="Our Projects | Essence Engineering">
+<Layout title="Selected Projects — Essence Engineering">
   <Header />
 
-  <!-- Hero -->
-  <section class="pt-32 pb-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-dark)] via-[var(--color-primary-dark)] to-[var(--color-darker)]"></div>
-    <div class="absolute top-20 left-10 w-72 h-72 bg-[var(--color-accent)] rounded-full mix-blend-multiply filter blur-[128px] opacity-10 animate-pulse-glow"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6">Our <span class="gradient-text">Projects</span></h1>
-      <p class="text-xl text-[var(--color-text-muted)] max-w-2xl">
-        A showcase of our engineering projects across Kenya.
+  <!-- Page head -->
+  <section class="pagehead blueprint" style="border-bottom:1px solid var(--line)">
+    <div class="wrap" style="padding-block:clamp(4rem,9vw,6rem)">
+      <p class="kicker mono-label mono-label--blue rise" style="--d:.05s">Project register</p>
+      <h1 class="display rise" style="--d:.12s">Selected <span class="strong-blue">works.</span></h1>
+      <p class="lead rise" style="--d:.2s;margin-top:1.5rem">
+        A running record of boreholes, solar systems and electrical works we have delivered.
       </p>
     </div>
   </section>
 
-  <!-- Filter -->
-  <section class="py-8 border-b border-[var(--color-border)]">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex flex-wrap gap-3" id="filters">
-        {categories.map((cat, i) => (
-          <button class={`px-4 py-2 rounded-full text-sm font-medium transition-all ${i === 0 ? 'bg-[var(--color-secondary)] text-white' : 'bg-[var(--color-surface)] text-[var(--color-text-muted)] hover:text-white hover:bg-[var(--color-surface-light)]'}`} data-filter={cat === 'All' ? 'all' : cat}>
-            {cat}
-          </button>
-        ))}
-      </div>
+  <!-- Filter bar -->
+  <section style="border-bottom:1px solid var(--line);background:var(--surface)">
+    <div class="wrap filterbar" id="filters">
+      {cats.map((c, i) => (
+        <button
+          class={`chip press${i === 0 ? ' chip--on' : ''}`}
+          data-filter={c === 'All' ? 'all' : c}
+        >
+          {c}
+        </button>
+      ))}
     </div>
   </section>
 
-  <!-- Projects Grid -->
-  <section class="py-24">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
-        {projects.map((project) => (
-          <div class="glass-card overflow-hidden group cursor-pointer project-card" data-category={project.category}>
-            <div class="relative h-56 overflow-hidden">
-              <img src={project.image} alt={project.title} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-              <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-dark)] to-transparent"></div>
-              <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[var(--color-secondary)]/90 text-sm font-medium">{project.category}</div>
-              <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-[var(--color-dark)]/80 text-sm text-[var(--color-text-muted)]">{project.year}</div>
+  <!-- Register -->
+  <section class="section">
+    <div class="wrap">
+      <div class="reg" id="reg">
+        {projects.map((p, i) => (
+          <article class="reg-row" data-cat={p.cat} data-reveal style={`--rd:${(i % 3) * 70}ms`}>
+            <div class="frame zoom-frame reg-frame">
+              <img src={p.img} alt={p.title} width="1000" height="660" loading="lazy" />
             </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 text-sm text-[var(--color-text-muted)] mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
-                {project.location}
-              </div>
-              <h3 class="text-xl font-bold mb-2">{project.title}</h3>
-              <p class="text-[var(--color-text-muted)] text-sm leading-relaxed">{project.description}</p>
+            <div class="reg-info">
+              <p class="mono-label tabular" style="display:flex;justify-content:space-between;gap:1rem;margin-bottom:1rem">
+                <span class="strong-blue">{p.no} — {p.cat}</span>
+                <span>{p.year}</span>
+              </p>
+              <h2 class="h3" style="margin-bottom:.5rem">{p.title}</h2>
+              <p style="color:var(--ink-2);font-size:.9375rem;margin-bottom:1rem">{p.desc}</p>
+              <p class="mono-label" style="margin:0">
+                <span style="color:var(--ink-3)">Loc.</span> {p.loc}
+              </p>
             </div>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
-  </section>
 
-  <!-- CTA -->
-  <section class="py-24 bg-[var(--color-dark)]">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Start Your <span class="gradient-text">Project</span></h2>
-      <p class="text-xl text-[var(--color-text-muted)] mb-8">Ready to work with us? Let's discuss your engineering needs.</p>
-      <a href="/contact" class="btn-primary">
-        Get a Free Quote
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-      </a>
+      <p class="mono-label" style="margin-top:3rem">
+        Full case references available on request. <a href="/contact" class="link-line">Ask us →</a>
+      </p>
     </div>
   </section>
 
   <Footer />
 </Layout>
 
+<style>
+  .filterbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-block: 1rem;
+  }
+
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.5rem 0.875rem;
+    border-radius: 3px;
+    border: 1px solid var(--line-2);
+    background: transparent;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: background-color var(--t-fast) var(--ease-out), border-color var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out);
+  }
+
+  .chip:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  .chip--on {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--surface);
+  }
+
+  .reg-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem 3rem;
+    padding-block: 2.5rem;
+    border-top: 1px solid var(--line);
+    align-items: center;
+  }
+
+  .reg-row:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .reg-frame {
+    aspect-ratio: 16 / 10;
+    display: block;
+    overflow: hidden;
+  }
+
+  @media (min-width: 860px) {
+    .reg-row {
+      grid-template-columns: 1.1fr 1fr;
+    }
+    .reg-row:nth-child(even) .reg-frame {
+      order: 2;
+    }
+  }
+</style>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const filters = document.querySelectorAll('#filters button');
-    const cards = document.querySelectorAll('.project-card');
-
-    filters.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filters.forEach(b => {
-          b.classList.remove('bg-[var(--color-secondary)]', 'text-white');
-          b.classList.add('bg-[var(--color-surface)]', 'text-[var(--color-text-muted)]');
-        });
-        btn.classList.add('bg-[var(--color-secondary)]', 'text-white');
-        btn.classList.remove('bg-[var(--color-surface)]', 'text-[var(--color-text-muted)]');
-
-        const filter = btn.getAttribute('data-filter');
-        cards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-category') === filter) {
-            card.style.display = '';
-          } else {
-            card.style.display = 'none';
-          }
+    const chips = document.querySelectorAll('#filters .chip');
+    const rows = document.querySelectorAll('#reg .reg-row');
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        chips.forEach((c) => c.classList.remove('chip--on'));
+        chip.classList.add('chip--on');
+        const f = chip.getAttribute('data-filter');
+        rows.forEach((row) => {
+          const on = f === 'all' || row.getAttribute('data-cat') === f;
+          row.style.display = on ? '' : 'none';
         });
       });
     });

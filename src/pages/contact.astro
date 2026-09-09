@@ -3,120 +3,186 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const contactInfo = [
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>`,
-    title: 'Office Address',
-    lines: ['Kericho Town, Kenya', 'Along Kericho-Nakuru Highway'],
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>`,
-    title: 'Phone Number',
-    lines: ['+254 700 000 000', '+254 712 345 678'],
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" /></svg>`,
-    title: 'Email Address',
-    lines: ['info@essenceengineering.co.ke', 'sales@essenceengineering.co.ke'],
-  },
-  {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`,
-    title: 'Working Hours',
-    lines: ['Monday - Friday: 8:00 AM - 5:00 PM', 'Saturday: 8:00 AM - 12:00 PM'],
-  },
+const contactRows = [
+  { label: 'Office', value: 'Kericho Town, along the Kericho–Nakuru road' },
+  { label: 'Call', value: '+254 700 000 000', href: 'tel:+254700000000' },
+  { label: 'WhatsApp', value: '+254 700 000 000', href: 'https://wa.me/254700000000' },
+  { label: 'Email', value: 'info@essenceengineering.co.ke', href: 'mailto:info@essenceengineering.co.ke' },
+  { label: 'Hours', value: 'Mon–Fri 8:00–17:00 · Sat 8:00–12:00 · Emergencies 24/7' },
 ];
 ---
 
-<Layout title="Contact Us | Essence Engineering">
+<Layout title="Contact — Essence Engineering, Kericho">
   <Header />
 
-  <!-- Hero -->
-  <section class="pt-32 pb-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-dark)] via-[var(--color-primary-dark)] to-[var(--color-darker)]"></div>
-    <div class="absolute top-20 right-10 w-72 h-72 bg-[var(--color-secondary)] rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse-glow"></div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6">Get in <span class="gradient-text">Touch</span></h1>
-      <p class="text-xl text-[var(--color-text-muted)] max-w-2xl">
-        Ready to start your project? Contact us for a free consultation and quote.
+  <!-- Page head -->
+  <section class="pagehead blueprint" style="border-bottom:1px solid var(--line)">
+    <div class="wrap" style="padding-block:clamp(4rem,9vw,6rem)">
+      <p class="kicker mono-label mono-label--blue rise" style="--d:.05s">Contact — free site visit</p>
+      <h1 class="display rise" style="--d:.12s">Talk to a person,<br /><span class="strong-blue">not a call centre.</span></h1>
+      <p class="lead rise" style="--d:.2s;margin-top:1.5rem">
+        Describe the job in the form or call directly. We reply during working hours, usually the same day.
       </p>
     </div>
   </section>
 
-  <!-- Contact Form + Info -->
-  <section class="py-24">
-    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+  <section class="section">
+    <div class="wrap contact-grid">
+      <!-- Details -->
+      <div>
+        <div class="crows">
+          {contactRows.map((r) => (
+            <div class="crow">
+              <span class="mono-label mono-label--blue crow-label">{r.label}</span>
+              {r.href ? (
+                <a href={r.href} class="crow-value link-line">{r.value}</a>
+              ) : (
+                <span class="crow-value">{r.value}</span>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <!-- Location block -->
+        <div class="loc" data-reveal>
+          <p class="mono-label mono-label--blue" style="margin-bottom:1.25rem">Position — head office</p>
+          <p class="loc-coords tabular">0°22′S&nbsp;&nbsp;35°17′E</p>
+          <p class="mono-label" style="margin-top:1rem">Kericho Town, Kenya</p>
+        </div>
+      </div>
+
       <!-- Form -->
-      <div class="glass-card p-8 md:p-12">
-        <h2 class="text-2xl font-bold mb-8">Send Us a Message</h2>
-        <form class="space-y-6" action="https://formsubmit.co/info@essenceengineering.co.ke" method="POST">
-          <input type="hidden" name="_subject" value="New Enquiry from Website" />
+      <div class="form-panel">
+        <form action="https://formsubmit.co/info@essenceengineering.co.ke" method="POST" data-reveal>
+          <input type="hidden" name="_subject" value="New enquiry — essenceengineering website" />
+          <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-medium mb-2">Full Name *</label>
-              <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] focus:border-[var(--color-secondary)] focus:outline-none transition-colors" placeholder="Your name" />
+          <input type="text" name="_honey" style="display:none" aria-hidden="true" tabindex="-1" />
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="f-name">Full name *</label>
+              <input id="f-name" type="text" name="name" required autocomplete="name" placeholder="e.g. Jane Wanjiku" />
             </div>
-            <div>
-              <label class="block text-sm font-medium mb-2">Email Address *</label>
-              <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] focus:border-[var(--color-secondary)] focus:outline-none transition-colors" placeholder="your@email.com" />
-            </div>
-          </div>
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-medium mb-2">Phone Number</label>
-              <input type="tel" name="phone" class="w-full px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] focus:border-[var(--color-secondary)] focus:outline-none transition-colors" placeholder="+254 7XX XXX XXX" />
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-2">Service Required *</label>
-              <select name="service" required class="w-full px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] focus:border-[var(--color-secondary)] focus:outline-none transition-colors">
-                <option value="">Select a service</option>
-                <option value="Borehole Services">Borehole Services</option>
-                <option value="Electrical Works">Electrical Works</option>
-                <option value="Plumbing Works">Plumbing Works</option>
-                <option value="Tank Structures">Tank Structures</option>
-                <option value="Solar Installations">Solar Installations</option>
-                <option value="General Consultancy">General Consultancy</option>
-              </select>
+            <div class="field">
+              <label for="f-tel">Phone *</label>
+              <input id="f-tel" type="tel" name="phone" required autocomplete="tel" inputmode="tel" placeholder="+254 7XX XXX XXX" />
             </div>
           </div>
-          <div>
-            <label class="block text-sm font-medium mb-2">Project Details *</label>
-            <textarea name="message" required rows="5" class="w-full px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text)] focus:border-[var(--color-secondary)] focus:outline-none transition-colors resize-none" placeholder="Tell us about your project..."></textarea>
+          <div class="field">
+            <label for="f-service">What do you need? *</label>
+            <select id="f-service" name="service" required>
+              <option value="">Select a service…</option>
+              <option>Borehole drilling / water works</option>
+              <option>Solar installation</option>
+              <option>Electrical works</option>
+              <option>Plumbing / tank structures</option>
+              <option>General supplies / construction</option>
+              <option>Consultancy / feasibility</option>
+              <option>Something else</option>
+            </select>
           </div>
-          <button type="submit" class="btn-primary w-full justify-center">
-            Send Message
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" /></svg>
+          <div class="field">
+            <label for="f-loc">Site location</label>
+            <input id="f-loc" type="text" name="location" placeholder="Town / village / landmark" />
+          </div>
+          <div class="field">
+            <label for="f-msg">Tell us about the job *</label>
+            <textarea id="f-msg" name="message" required placeholder="What is the situation? Any existing systems? When do you need it done?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-blue" style="width:100%">
+            Send enquiry
+            <span class="btn-arrow">→</span>
           </button>
+          <p class="mono-label" style="margin:1rem 0 0;text-align:center">We reply during working hours — usually the same day.</p>
         </form>
       </div>
-
-      <!-- Contact Info -->
-      <div class="space-y-8">
-        {contactInfo.map((item) => (
-          <div class="glass-card p-6 flex gap-4">
-            <div class="w-12 h-12 rounded-xl bg-[var(--color-secondary)]/10 flex items-center justify-center text-[var(--color-secondary)] flex-shrink-0" set:html={item.icon}></div>
-            <div>
-              <h3 class="font-bold mb-1">{item.title}</h3>
-              {item.lines.map((line) => (
-                <p class="text-[var(--color-text-muted)]">{line}</p>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Map Placeholder -->
-  <section class="h-96 bg-[var(--color-surface)] flex items-center justify-center">
-    <div class="text-center">
-      <div class="text-[var(--color-secondary)] mb-4">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
-      </div>
-      <p class="text-xl font-bold mb-2">Find Us in Kericho</p>
-      <p class="text-[var(--color-text-muted)]">Along Kericho-Nakuru Highway, Kericho Town, Kenya</p>
     </div>
   </section>
 
   <Footer />
 </Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    gap: 3.5rem;
+  }
+
+  /* contact rows */
+  .crows {
+    border-top: 1px solid var(--line);
+  }
+
+  .crow {
+    display: grid;
+    grid-template-columns: minmax(6rem, 8rem) 1fr;
+    gap: 1.25rem;
+    padding-block: 1.25rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .crow-value {
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  /* location block */
+  .loc {
+    margin-top: 3rem;
+    border: 1px solid var(--line-2);
+    background:
+      linear-gradient(to right, rgba(15, 31, 49, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 31, 49, 0.04) 1px, transparent 1px),
+      var(--surface);
+    background-size: 28px 28px;
+    padding: 2rem;
+    position: relative;
+  }
+
+  .loc::before,
+  .loc::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+  }
+
+  .loc::before { top: -1px; left: -1px; border-top: 2px solid var(--blue); border-left: 2px solid var(--blue); }
+  .loc::after { bottom: -1px; right: -1px; border-bottom: 2px solid var(--blue); border-right: 2px solid var(--blue); }
+
+  .loc-coords {
+    font-family: var(--font-mono);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  /* form panel */
+  .form-panel {
+    background: var(--surface);
+    border: 1px solid var(--line-2);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 1.25rem;
+  }
+
+  @media (min-width: 700px) {
+    .form-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (min-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(3rem, 6vw, 5rem);
+      align-items: start;
+    }
+  }
+</style>
