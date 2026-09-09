@@ -1,0 +1,73 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-[var(--color-darker)]/80 backdrop-blur-xl border-b border-[var(--color-border)]/50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-secondary)] to-[var(--color-accent)] flex items-center justify-center">
+        <span class="text-white font-bold text-lg">E</span>
+      </div>
+      <div>
+        <div class="font-bold text-lg leading-tight">ESSENCE</div>
+        <div class="text-[10px] tracking-[0.2em] text-[var(--color-secondary)] leading-tight">ENGINEERING</div>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`text-sm font-medium transition-colors ${currentPath === link.href ? 'text-[var(--color-secondary)]' : 'text-[var(--color-text-muted)] hover:text-white'}`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTA + Mobile Toggle -->
+    <div class="flex items-center gap-4">
+      <a href="/contact" class="btn-primary text-sm py-2 px-4 hidden md:inline-flex">
+        Get a Quote
+      </a>
+      <button id="mobile-toggle" class="md:hidden text-white p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-dark)] border-t border-[var(--color-border)]">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`text-sm font-medium transition-colors ${currentPath === link.href ? 'text-[var(--color-secondary)]' : 'text-[var(--color-text-muted)]'}`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/contact" class="btn-primary text-sm py-2 px-4 text-center mt-2">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  });
+</script>
