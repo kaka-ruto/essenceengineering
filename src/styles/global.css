@@ -378,51 +378,6 @@ a {
   text-wrap: balance;
 }
 
-/* ============ forms ============ */
-
-.field {
-  display: block;
-  margin-bottom: 1.5rem;
-}
-
-.field label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.71875rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: var(--ink-2);
-  margin-bottom: 0.5rem;
-}
-
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-  padding: 0.8125rem 0.9375rem;
-  background: var(--surface);
-  border: 1px solid var(--line-2);
-  border-radius: 3px;
-  font-family: inherit;
-  font-size: 1rem;
-  color: var(--ink);
-  transition: border-color var(--t-fast) var(--ease-out);
-}
-
-.field textarea {
-  resize: vertical;
-  min-height: 8rem;
-}
-
-.field input:focus-visible,
-.field select:focus-visible,
-.field textarea:focus-visible {
-  outline: none;
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18);
-}
-
 /* ============ motion ============ */
 
 /* entrance choreography (hero / on-load) */

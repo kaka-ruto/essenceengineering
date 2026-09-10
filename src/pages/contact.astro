@@ -4,15 +4,15 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const contactRows = [
-  { label: 'Office', value: 'Kericho Town, along the Kericho–Nakuru road' },
-  { label: 'Call', value: '+254 700 000 000', href: 'tel:+254700000000' },
-  { label: 'WhatsApp', value: '+254 700 000 000', href: 'https://wa.me/254700000000' },
+  { label: 'Office', value: 'Kericho Town, Kenya', href: null },
+  { label: 'Call', value: '+254 715 377 017', href: 'tel:+254715377017' },
+  { label: 'WhatsApp', value: '+254 715 377 017', href: 'https://wa.me/254715377017' },
   { label: 'Email', value: 'info@essenceengineering.co.ke', href: 'mailto:info@essenceengineering.co.ke' },
   { label: 'Hours', value: 'Mon–Fri 8:00–17:00 · Sat 8:00–12:00 · Emergencies 24/7' },
 ];
 ---
 
-<Layout title="Contact — Essence Engineering, Kericho">
+<Layout title="Contact — Essence Engineering">
   <Header />
 
   <!-- Page head -->
@@ -21,7 +21,7 @@ const contactRows = [
       <p class="kicker mono-label mono-label--blue rise" style="--d:.05s">Contact — free site visit</p>
       <h1 class="display rise" style="--d:.12s">Talk to a person,<br /><span class="strong-blue">not a call centre.</span></h1>
       <p class="lead rise" style="--d:.2s;margin-top:1.5rem">
-        Describe the job in the form or call directly. We reply during working hours, usually the same day.
+        Call or email directly — no forms, no waiting. We reply during working hours, usually the same day.
       </p>
     </div>
   </section>
@@ -51,51 +51,31 @@ const contactRows = [
         </div>
       </div>
 
-      <!-- Form -->
-      <div class="form-panel">
-        <form action="https://formsubmit.co/info@essenceengineering.co.ke" method="POST" data-reveal>
-          <input type="hidden" name="_subject" value="New enquiry — essenceengineering website" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="text" name="_honey" style="display:none" aria-hidden="true" tabindex="-1" />
+      <!-- Direct actions (no form) -->
+      <div class="direct-panel" data-reveal>
+        <p class="mono-label mono-label--blue" style="margin-bottom:2rem">Prefer to talk? Pick either</p>
 
-          <div class="form-grid">
-            <div class="field">
-              <label for="f-name">Full name *</label>
-              <input id="f-name" type="text" name="name" required autocomplete="name" placeholder="e.g. Jane Wanjiku" />
-            </div>
-            <div class="field">
-              <label for="f-tel">Phone *</label>
-              <input id="f-tel" type="tel" name="phone" required autocomplete="tel" inputmode="tel" placeholder="+254 7XX XXX XXX" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="f-service">What do you need? *</label>
-            <select id="f-service" name="service" required>
-              <option value="">Select a service…</option>
-              <option>Borehole drilling / water works</option>
-              <option>Solar installation</option>
-              <option>Electrical works</option>
-              <option>Plumbing / tank structures</option>
-              <option>General supplies / construction</option>
-              <option>Consultancy / feasibility</option>
-              <option>Something else</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="f-loc">Site location</label>
-            <input id="f-loc" type="text" name="location" placeholder="Town / village / landmark" />
-          </div>
-          <div class="field">
-            <label for="f-msg">Tell us about the job *</label>
-            <textarea id="f-msg" name="message" required placeholder="What is the situation? Any existing systems? When do you need it done?"></textarea>
-          </div>
-          <button type="submit" class="btn btn-blue" style="width:100%">
-            Send enquiry
-            <span class="btn-arrow">→</span>
-          </button>
-          <p class="mono-label" style="margin:1rem 0 0;text-align:center">We reply during working hours — usually the same day.</p>
-        </form>
+        <a href="tel:+254715377017" class="direct-row press">
+          <span class="direct-row__label mono-label">Call — phone</span>
+          <span class="direct-row__value">+254 715 377 017</span>
+          <span class="direct-row__arrow mono-label">→</span>
+        </a>
+
+        <a href="mailto:info@essenceengineering.co.ke" class="direct-row press">
+          <span class="direct-row__label mono-label">Email</span>
+          <span class="direct-row__value">info@essenceengineering.co.ke</span>
+          <span class="direct-row__arrow mono-label">→</span>
+        </a>
+
+        <a href="https://wa.me/254715377017" class="direct-row press">
+          <span class="direct-row__label mono-label">WhatsApp</span>
+          <span class="direct-row__value">+254 715 377 017</span>
+          <span class="direct-row__arrow mono-label">→</span>
+        </a>
+
+        <p class="mono-label" style="margin-top:2rem">
+          Tell us the location, the situation, and when you need it done. We come to you for the site visit.
+        </p>
       </div>
     </div>
   </section>
@@ -161,21 +141,47 @@ const contactRows = [
     letter-spacing: 0.02em;
   }
 
-  /* form panel */
-  .form-panel {
+  /* direct contact rows */
+  .direct-panel {
     background: var(--surface);
     border: 1px solid var(--line-2);
     padding: clamp(1.5rem, 4vw, 2.5rem);
+    align-self: start;
   }
 
-  .form-grid {
+  .direct-row {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 0 1.25rem;
+    grid-template-columns: minmax(6rem, 9rem) 1fr auto;
+    gap: 1rem;
+    align-items: baseline;
+    padding-block: 1.375rem;
+    border-top: 1px solid var(--line);
+    text-decoration: none;
+    transition: background-color var(--t-med) var(--ease-out);
   }
 
-  @media (min-width: 700px) {
-    .form-grid { grid-template-columns: 1fr 1fr; }
+  .direct-row:last-of-type {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .direct-row__value {
+    font-weight: 800;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .direct-row__arrow {
+    transition: transform var(--t-med) var(--ease-out);
+  }
+
+  @media (any-hover: hover) {
+    .direct-row:hover {
+      background: var(--blue-tint);
+    }
+    .direct-row:hover .direct-row__arrow {
+      transform: translateX(4px);
+    }
   }
 
   @media (min-width: 900px) {
