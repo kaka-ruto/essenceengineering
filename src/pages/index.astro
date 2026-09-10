@@ -11,10 +11,10 @@ const services = [
 ];
 
 const stats = [
-  { value: '6', unit: '', label: 'Service lines under one roof' },
+  { value: '6', unit: '', label: 'Service lines' },
   { value: '24/7', unit: '', label: 'Emergency response for installed systems' },
-  { value: '100%', unit: '', label: 'Systems tested & commissioned before handover' },
-  { value: 'Reg. 2026', unit: '', label: 'Registered Kenyan company' },
+  { value: '100%', unit: '', label: 'Systems tested before handover' },
+  { value: '2026', unit: '', label: 'Registered in Kenya' },
 ];
 
 const projects = [
@@ -36,11 +36,6 @@ const projects = [
     tag: 'Electrical',
     img: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=900&q=70&auto=format&fit=crop',
   },
-];
-
-const quotes = [
-  { text: 'They drilled, equipped and handed over a working borehole on schedule. The documentation alone set them apart.', by: 'Residential client' },
-  { text: 'Our power bill dropped by more than half after their solar install. Clean work, honest advice.', by: 'Business owner' },
 ];
 ---
 
@@ -86,8 +81,8 @@ const quotes = [
     <!-- Title block -->
     <div class="wrap hero-titleblock">
       <span class="mono-label">Essence Engineering Ltd</span>
+      <span class="mono-label">General supplies · Construction · Consultancy</span>
       <span class="mono-label">Serving the South Rift &amp; beyond</span>
-      <span class="mono-label">Founder: Kevin Terer</span>
     </div>
   </section>
 
@@ -100,7 +95,7 @@ const quotes = [
           <h2 class="h2">Everything your property needs,<br />from one contractor.</h2>
         </div>
         <p class="sec-head__aside">
-          One point of contact from survey to commissioning — with warranties on installed systems and aftercare that actually picks up the phone.
+          One point of contact from survey to commissioning, with warranties on installed systems and aftercare that responds.
         </p>
       </div>
 
@@ -169,47 +164,31 @@ const quotes = [
     <div class="wrap why-grid">
       <div>
         <p class="kicker mono-label">03 — Why Essence</p>
-        <h2 class="h2">The boring details,<br />done properly.</h2>
+        <h2 class="h2">Simple, done well,<br />and we stand behind it.</h2>
       </div>
       <ul class="why-list">
         <li class="spec-row" style="grid-template-columns:minmax(3rem,auto) 1fr">
           <span class="spec-row__no">A</span>
           <span>
             <span class="h3" style="display:block;margin-bottom:.25rem">Survey before you spend</span>
-            <span style="color:var(--ink-2);font-size:.9375rem">Site assessment and honest costing before any work starts. If you don't need it, we say so.</span>
+            <span style="color:var(--ink-2);font-size:.9375rem">We look at the site and agree the scope before any work begins.</span>
           </span>
         </li>
         <li class="spec-row" style="grid-template-columns:minmax(3rem,auto) 1fr">
           <span class="spec-row__no">B</span>
           <span>
-            <span class="h3" style="display:block;margin-bottom:.25rem">Built &amp; tested to standard</span>
-            <span style="color:var(--ink-2);font-size:.9375rem">Systems are commissioned and tested in front of you, with handover notes you can keep.</span>
+            <span class="h3" style="display:block;margin-bottom:.25rem">Built to standard</span>
+            <span style="color:var(--ink-2);font-size:.9375rem">Correct materials, correct method, tested before handover.</span>
           </span>
         </li>
         <li class="spec-row" style="grid-template-columns:minmax(3rem,auto) 1fr">
           <span class="spec-row__no">C</span>
           <span>
-            <span class="h3" style="display:block;margin-bottom:.25rem">Aftercare that answers</span>
-            <span style="color:var(--ink-2);font-size:.9375rem">Warranties on equipment and installation, with a response line for what we have built.</span>
+            <span class="h3" style="display:block;margin-bottom:.25rem">We stay reachable</span>
+            <span style="color:var(--ink-2);font-size:.9375rem">After handover, our number still works. Warranties honoured, call-outs answered.</span>
           </span>
         </li>
       </ul>
-    </div>
-  </section>
-
-  <!-- ================= QUOTES ================= -->
-  <section class="section" style="background:var(--surface);border-block:1px solid var(--line)" data-reveal>
-    <div class="wrap">
-      <p class="kicker mono-label">04 — Client notes</p>
-      <div class="quotes-grid">
-        {quotes.map((q) => (
-          <blockquote class="quote">
-            <span class="quote__mark" aria-hidden="true">“</span>
-            <p class="quote__text">{q.text}</p>
-            <cite class="mono-label" style="font-style:normal;margin-top:1.5rem;display:block">— {q.by}</cite>
-          </blockquote>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -217,7 +196,7 @@ const quotes = [
   <section class="cta" style="background:var(--dark);color:var(--on-dark)">
     <div class="wrap cta-inner">
       <div>
-        <p class="mono-label mono-label--dark" style="margin-bottom:1.25rem">Ready when you are</p>
+        <p class="mono-label mono-label--dark" style="margin-bottom:1.25rem">Talk to us</p>
         <h2 class="h2" style="color:var(--on-dark)">Have a water or power problem?<br />Let's walk the site.</h2>
       </div>
       <div class="cta-actions">
@@ -365,17 +344,6 @@ const quotes = [
 
   @media (min-width: 860px) {
     .why-grid { grid-template-columns: 1fr 1.4fr; gap: 4rem; }
-  }
-
-  /* ---- quotes ---- */
-  .quotes-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem 4rem;
-  }
-
-  @media (min-width: 860px) {
-    .quotes-grid { grid-template-columns: 1fr 1fr; }
   }
 
   /* ---- cta ---- */

@@ -2,12 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-
-const values = [
-  { no: 'A', title: 'Do the job properly', desc: 'Correct materials, correct method, tested before handover. Shortcuts cost more in the long run.' },
-  { no: 'B', title: 'Say what it will cost', desc: 'Written quotes, honest scope. If something is not needed, the client hears it from us first.' },
-  { no: 'C', title: 'Be there afterwards', desc: 'A system we install is a system we answer for. That is the whole point of a local company.' },
-];
 ---
 
 <Layout title="About — Essence Engineering">
@@ -16,8 +10,8 @@ const values = [
   <!-- Page head -->
   <section class="pagehead blueprint" style="border-bottom:1px solid var(--line)">
     <div class="wrap" style="padding-block:clamp(4rem,9vw,6rem)">
-      <p class="kicker mono-label mono-label--blue rise" style="--d:.05s">Company record — Kenya</p>
-      <h1 class="display rise" style="--d:.12s">A local engineering company, <span class="strong-blue">built on site.</span></h1>
+      <p class="kicker mono-label mono-label--blue rise" style="--d:.05s">About the company</p>
+      <h1 class="display rise" style="--d:.12s">A company that finishes<br />what it <span class="strong-blue">starts.</span></h1>
     </div>
   </section>
 
@@ -26,69 +20,18 @@ const values = [
     <div class="wrap about-grid">
       <div>
         <p class="kicker mono-label">Who we are</p>
-        <h2 class="h2" style="margin-bottom:1.5rem">From boreholes to switchboards.</h2>
+        <h2 class="h2" style="margin-bottom:1.5rem">A Kenyan engineering company.</h2>
       </div>
       <div class="prose" style="display:grid;gap:1.25rem">
         <p>
-          Essence Engineering Limited is a registered Kenyan company founded by Kevin Terer. We drill boreholes, install solar and electrical systems, build water storage and plumbing, supply materials, and consult on engineering works.
+          Essence Engineering Limited is a registered Kenyan company. We drill boreholes, install solar and electrical systems, build water storage and plumbing, supply materials, and consult on engineering works.
         </p>
         <p>
-          The company exists because property owners in this region kept getting the same raw deal: contractors who disappear after payment, systems sized wrong for the ground or the load, and nobody accountable once the job is "done".
+          The company was founded by Kevin Terer, and is run on a simple principle: the client should never have to chase the contractor. We survey before we quote, build to standard, and stay on the line after handover.
         </p>
         <p>
-          So we built the company we wanted to hire — one that surveys first, quotes honestly, installs to standard, tests in front of the client, and stays on the line afterwards.
+          Our work is for homes, farms, schools, churches and businesses — anyone who needs water or power they can rely on.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Register of works / registration detail -->
-  <section class="section" style="background:var(--surface);border-block:1px solid var(--line)">
-    <div class="wrap">
-      <p class="kicker mono-label">On the record</p>
-      <div class="stats-grid">
-        <div class="stat"><div class="stat__value">6</div><p class="mono-label" style="margin:.5rem 0 0">Service lines</p></div>
-        <div class="stat"><div class="stat__value">Kenya</div><p class="mono-label" style="margin:.5rem 0 0">Registered &amp; licensed</p></div>
-        <div class="stat"><div class="stat__value">1</div><p class="mono-label" style="margin:.5rem 0 0">Founder — Kevin Terer</p></div>
-        <div class="stat"><div class="stat__value">24/7</div><p class="mono-label" style="margin:.5rem 0 0">Response for installed systems</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Values -->
-  <section class="section">
-    <div class="wrap">
-      <p class="kicker mono-label">Operating principles</p>
-      <ul class="vals" style="list-style:none;margin:0;padding:0">
-        {values.map((v) => (
-          <li class="spec-row" style="grid-template-columns:minmax(3rem,auto) 1fr" data-reveal>
-            <span class="spec-row__no">{v.no}</span>
-            <span>
-              <span class="h3" style="display:block;margin-bottom:.25rem">{v.title}</span>
-              <span style="color:var(--ink-2);font-size:.9375rem">{v.desc}</span>
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
-
-  <!-- Founder -->
-  <section class="section" style="background:var(--surface);border-block:1px solid var(--line)" data-reveal>
-    <div class="wrap founder">
-      <div class="founder-mark" aria-hidden="true">KT</div>
-      <div>
-        <p class="mono-label mono-label--blue" style="margin-bottom:1rem">Founder &amp; Managing Director</p>
-        <h2 class="h2" style="margin-bottom:1.25rem">Kevin Terer</h2>
-        <p class="prose" style="max-width:60ch;color:var(--ink-2)">
-          Kevin started Essence Engineering to bring dependable water and power work to his home county. He still walks every site before a proposal is written.
-        </p>
-        <blockquote class="quote" style="margin-top:2rem;max-width:52ch">
-          <span class="quote__mark" aria-hidden="true">“</span>
-          <p class="quote__text">
-            A borehole or a solar system is a twenty-year decision. It should be built like one.
-          </p>
-        </blockquote>
       </div>
     </div>
   </section>
@@ -98,11 +41,11 @@ const values = [
     <div class="wrap cta-inner">
       <div>
         <p class="mono-label mono-label--dark" style="margin-bottom:1.25rem">Next step</p>
-        <h2 class="h2" style="color:var(--on-dark)">Come and see what<br />we mean by done properly.</h2>
+        <h2 class="h2" style="color:var(--on-dark)">Need water or power work done?<br />Call us and we'll take it from there.</h2>
       </div>
       <div class="cta-actions">
-        <a href="/contact" class="btn btn-darkband">Arrange a site visit <span class="btn-arrow">→</span></a>
-        <a href="/projects" class="btn cta-tel">See the work</a>
+        <a href="tel:+254715377017" class="btn btn-darkband">Call +254 715 377 017</a>
+        <a href="/contact" class="btn cta-tel">Email or WhatsApp</a>
       </div>
     </div>
   </section>
@@ -114,44 +57,6 @@ const values = [
   .about-grid {
     display: grid;
     gap: 2rem;
-  }
-
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem clamp(2rem, 5vw, 4rem);
-  }
-
-  .stat__value {
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-  }
-
-  .founder {
-    display: grid;
-    gap: 2rem;
-    align-items: start;
-  }
-
-  .founder-mark {
-    display: grid;
-    place-items: center;
-    width: 112px;
-    height: 112px;
-    border-radius: 3px;
-    background: var(--ink);
-    color: var(--surface);
-    font-weight: 900;
-    font-size: 2.25rem;
-    letter-spacing: -0.02em;
-  }
-
-  @media (min-width: 700px) {
-    .about-grid { grid-template-columns: 1fr 1.6fr; gap: 4rem; }
-    .stats-grid { grid-template-columns: repeat(4, 1fr); }
-  }
-
-  @media (min-width: 860px) {
-    .founder { grid-template-columns: auto 1fr; gap: 3.5rem; }
   }
 
   .cta-inner {
@@ -167,6 +72,10 @@ const values = [
     background: transparent;
   }
   .cta-tel:hover { border-color: var(--on-dark); }
+
+  @media (min-width: 700px) {
+    .about-grid { grid-template-columns: 1fr 1.6fr; gap: 4rem; }
+  }
 
   @media (min-width: 860px) {
     .cta-inner { grid-template-columns: 1.5fr 1fr; align-items: center; }

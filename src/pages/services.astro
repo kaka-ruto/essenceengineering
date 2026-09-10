@@ -8,51 +8,51 @@ const services = [
     id: 'boreholes',
     no: '01',
     title: 'Borehole Drilling & Water Works',
-    intro: 'Clean, dependable water starts with the right hole in the right place. We handle the whole chain — locating, drilling, equipping and testing.',
+    intro: 'We survey the site, drill, install the pump and test the water — so you end up with a working borehole, not just a hole.',
     includes: ['Site survey & geophysical logging', 'Drilling & casing', 'Pump selection & installation', 'Water quality testing', 'Rehabilitation of failed boreholes', 'Maintenance contracts'],
   },
   {
     id: 'solar',
     no: '02',
     title: 'Solar Installations',
-    intro: 'Grid power is unreliable and expensive. We size and install solar systems that keep homes, shops and farms running — and document every watt.',
+    intro: 'Power cuts cost money. We size and install solar systems that keep homes, shops and farms running without the grid.',
     includes: ['Load assessment & system design', 'Panel & mounting installation', 'Inverters & battery banks', 'Solar water pumping for boreholes', 'System monitoring', 'Maintenance & fault response'],
   },
   {
     id: 'electrical',
     no: '03',
     title: 'Electrical Works',
-    intro: 'Safe, code-compliant electrical installations for new buildings and upgrades — tested before handover and signed off properly.',
+    intro: 'Wiring and electrical installations done to standard, tested before handover — for new buildings and upgrades.',
     includes: ['Complete wiring & rewiring', 'Distribution boards', 'Standby generators & changeovers', 'Lighting design & installation', 'Earthing & surge protection', 'Fault-finding & repairs'],
   },
   {
     id: 'plumbing',
     no: '04',
     title: 'Plumbing & Tank Structures',
-    intro: 'Water supply and storage that works with gravity and pressure, sized for Kenyan rainfall and usage patterns.',
+    intro: 'Water supply, drainage and storage tanks — built to work with the pressure and rainfall patterns you actually have.',
     includes: ['Water supply & distribution', 'Drainage & sewerage', 'Elevated & ground tank structures', 'Rainwater harvesting', 'Hot water systems', 'Leak detection & repair'],
   },
   {
     id: 'supplies',
     no: '05',
     title: 'General Supplies & Construction',
-    intro: 'Supply of building materials and equipment, plus small works and construction support for homes and institutions.',
+    intro: 'Building materials, pumps, pipes and fittings — plus small construction works for homes and institutions.',
     includes: ['Building materials supply', 'Pumps, pipes & fittings', 'Fencing & farm works', 'Small civil works', 'Renovation support'],
   },
   {
     id: 'consultancy',
     no: '06',
     title: 'Engineering Consultancy',
-    intro: 'Independent, practical advice before you commit: feasibility, costing, system design and supervision of works.',
+    intro: 'Practical advice before you commit: feasibility, system design, costing and supervision of works.',
     includes: ['Feasibility studies', 'System design & specification', 'Cost estimates', 'Contractor supervision', 'Inspection & reporting'],
   },
 ];
 
 const process = [
-  { no: 'A', title: 'Site visit', desc: 'We come to you, look at the ground, the load, the existing setup — and listen.' },
-  { no: 'B', title: 'Proposal', desc: 'A written scope with clear pricing and a realistic timeline. No surprises later.' },
-  { no: 'C', title: 'Works', desc: 'Our own teams do the job. You get progress updates, not silence.' },
-  { no: 'D', title: 'Commissioning', desc: 'Tested in front of you, handed over with notes and warranty details.' },
+  { no: 'A', title: 'Site visit', desc: 'We come and look at the site, the ground and the existing setup.' },
+  { no: 'B', title: 'Proposal', desc: 'A written scope with clear pricing and a realistic timeline.' },
+  { no: 'C', title: 'Works', desc: 'Our own teams do the job, with progress updates along the way.' },
+  { no: 'D', title: 'Commissioning', desc: 'Tested in front of you and handed over with notes and warranty details.' },
 ];
 ---
 
@@ -62,7 +62,7 @@ const process = [
   <!-- Page head -->
   <section class="pagehead blueprint" style="border-bottom:1px solid var(--line)">
     <div class="wrap" style="padding-block:clamp(4rem,9vw,6rem)">
-      <p class="kicker mono-label mono-label--blue rise" style="--d:.05s">Service index — 06 lines</p>
+      <p class="kicker mono-label mono-label--blue rise" style="--d:.05s">Our services</p>
       <h1 class="display rise" style="--d:.12s">What we <span class="strong-blue">build.</span></h1>
       <p class="lead rise" style="--d:.2s;margin-top:1.5rem">
         Water, power and infrastructure services for homes, farms, institutions and businesses in Kenya.
@@ -99,7 +99,7 @@ const process = [
   <section class="section" style="background:var(--surface);border-block:1px solid var(--line)" data-reveal>
     <div class="wrap">
       <p class="kicker mono-label">How we work</p>
-      <h2 class="h2" style="margin-bottom:clamp(2.5rem,6vw,4rem)">Four steps, <span class="strong-blue">no theatre.</span></h2>
+      <h2 class="h2" style="margin-bottom:clamp(2.5rem,6vw,4rem)">Four steps, <span class="strong-blue">start to finish.</span></h2>
       <div class="proc-grid">
         {process.map((p) => (
           <div class="proc">
