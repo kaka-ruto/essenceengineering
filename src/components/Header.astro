@@ -15,10 +15,7 @@ const currentPath = Astro.url.pathname;
     <!-- Brand -->
     <a href="/" class="brand" aria-label="Essence Engineering — home">
       <span class="brand__mark" aria-hidden="true">E</span>
-      <span class="brand__text">
-        <span class="brand__name">Essence Engineering</span>
-        <span class="brand__sub">Registered in Kenya</span>
-      </span>
+      <span class="brand__name">Essence Engineering</span>
     </a>
 
     <!-- Desktop nav -->
@@ -97,12 +94,7 @@ const currentPath = Astro.url.pathname;
     font-weight: 800;
     font-size: 1.25rem;
     line-height: 1;
-  }
-
-  .brand__text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.15;
+    flex-shrink: 0;
   }
 
   .brand__name {
@@ -110,14 +102,7 @@ const currentPath = Astro.url.pathname;
     font-size: 1rem;
     letter-spacing: -0.01em;
     color: var(--ink);
-  }
-
-  .brand__sub {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--blue);
+    white-space: nowrap;
   }
 
   .nav-desktop {
